@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background: dark rounded square matching site bg -->
+  <rect width="64" height="64" rx="14" fill="#07090a"/>
+
+  <!-- Cannabis leaf — simplified for small sizes, chunkier leaflets -->
+  <!-- Each leaflet is a thicker lanceolate shape; serration detail removed at this scale -->
+  <g transform="translate(32 36)" fill="#6dff3f">
+    <!-- Center leaflet (longest, vertical up) -->
+    <path d="M 0 0
+             C -4 -6, -6 -14, -4 -22
+             C -2 -27, -1 -28, 0 -29
+             C 1 -28, 2 -27, 4 -22
+             C 6 -14, 4 -6, 0 0 Z"/>
+    <!-- Upper-right -->
+    <g transform="rotate(38)">
+      <path d="M 0 0
+               C -3.5 -5, -5 -12, -3.5 -19
+               C -1.8 -23, -1 -24, 0 -25
+               C 1 -24, 1.8 -23, 3.5 -19
+               C 5 -12, 3.5 -5, 0 0 Z"/>
+    </g>
+    <!-- Upper-left -->
+    <g transform="rotate(-38)">
+      <path d="M 0 0
+               C -3.5 -5, -5 -12, -3.5 -19
+               C -1.8 -23, -1 -24, 0 -25
+               C 1 -24, 1.8 -23, 3.5 -19
+               C 5 -12, 3.5 -5, 0 0 Z"/>
+    </g>
+    <!-- Mid-right -->
+    <g transform="rotate(75)">
+      <path d="M 0 0
+               C -3 -4, -4 -9, -2.8 -15
+               C -1.5 -18, -0.8 -19, 0 -20
+               C 0.8 -19, 1.5 -18, 2.8 -15
+               C 4 -9, 3 -4, 0 0 Z"/>
+    </g>
+    <!-- Mid-left -->
+    <g transform="rotate(-75)">
+      <path d="M 0 0
+               C -3 -4, -4 -9, -2.8 -15
+               C -1.5 -18, -0.8 -19, 0 -20
+               C 0.8 -19, 1.5 -18, 2.8 -15
+               C 4 -9, 3 -4, 0 0 Z"/>
+    </g>
+    <!-- Lower-right (smallest) -->
+    <g transform="rotate(115)">
+      <path d="M 0 0
+               C -2.5 -3, -3 -7, -2 -11
+               C -1 -13, -0.5 -14, 0 -14.5
+               C 0.5 -14, 1 -13, 2 -11
+               C 3 -7, 2.5 -3, 0 0 Z"/>
+    </g>
+    <!-- Lower-left (smallest) -->
+    <g transform="rotate(-115)">
+      <path d="M 0 0
+               C -2.5 -3, -3 -7, -2 -11
+               C -1 -13, -0.5 -14, 0 -14.5
+               C 0.5 -14, 1 -13, 2 -11
+               C 3 -7, 2.5 -3, 0 0 Z"/>
+    </g>
+  </g>
+</svg>
