@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://enjoy24.netlify.app/sitemap-index.xml

@@ -11,9 +11,29 @@ import outfitLatinWoff2 from '@fontsource-variable/outfit/files/outfit-latin-wgh
 interface Props {
   title: string;
   description: string;
+  /** Root-relative path or absolute URL for sharing previews (default `/og.webp`). */
+  ogImage?: string;
+  ogImageAlt?: string;
+  /** Use on error pages so they are not indexed. */
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const siteFallback = import.meta.env.SITE ?? 'https://enjoy24.netlify.app';
+const baseUrl = Astro.site ?? new URL(siteFallback.endsWith('/') ? siteFallback : `${siteFallback}/`);
+const canonicalURL = new URL(Astro.url.pathname, baseUrl);
+
+const {
+  title,
+  description,
+  ogImage = '/og.webp',
+  ogImageAlt = 'Enjoy 24h storefront — cannabis, coffee, and lounge in Rawai, Phuket',
+  noindex = false,
+} = Astro.props;
+
+const absoluteOg =
+  ogImage.startsWith('http://') || ogImage.startsWith('https://')
+    ? ogImage
+    : new URL(ogImage.startsWith('/') ? ogImage : `/${ogImage}`, baseUrl).href;
 ---
 
 <!DOCTYPE html>
@@ -23,6 +43,26 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Enjoy 24h" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={absoluteOg} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOg} />
+
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <slot name="jsonld" />
 
     <link rel="preload" href={bungeeWoff2} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={majorMonoWoff2} as="font" type="font/woff2" crossorigin />

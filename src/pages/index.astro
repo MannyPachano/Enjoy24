@@ -8,12 +8,51 @@ import img4 from '../assets/images/img4.webp';
 import img5 from '../assets/images/img5.webp';
 import img7 from '../assets/images/img7.webp';
 import img8 from '../assets/images/img8.webp';
+
+const origin =
+  Astro.site?.origin ?? new URL(import.meta.env.SITE ?? 'https://enjoy24.netlify.app').origin;
+
+const localBusinessLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CannabisStore',
+  name: 'Enjoy 24h',
+  description:
+    'A 24-hour cannabis shop, coffee bar, and PlayStation lounge in Rawai, Phuket. Premium flower, fresh coffee, and good vibes around the clock.',
+  url: `${origin}/`,
+  image: [`${origin}/og.webp`],
+  telephone: '+66993594534',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+66993594534',
+    contactType: 'customer service',
+    url: 'https://wa.me/66993594534',
+    availableLanguage: ['English', 'Thai'],
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Q8R9+H3V, Rawai',
+    addressLocality: 'Rawai',
+    addressRegion: 'Phuket',
+    addressCountry: 'TH',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '24:00',
+    },
+  ],
+  sameAs: ['https://maps.google.com/?q=Q8R9%2BH3V+Rawai+Phuket', 'https://wa.me/66993594534'],
+};
 ---
 
 <Layout
-  title="Enjoy 24 — Cannabis · Coffee · PlayStation · Open 24 Hours · Rawai, Phuket"
+  title="Enjoy 24h — Cannabis · Coffee · PlayStation · Open 24 Hours · Rawai, Phuket"
   description="A 24-hour cannabis shop, coffee bar, and PlayStation lounge in Rawai, Phuket. Premium flower, fresh coffee, and good vibes around the clock."
 >
+<script type="application/ld+json" slot="jsonld" set:html={JSON.stringify(localBusinessLd)} />
+
 <!-- ====== NAV ====== -->
 <nav class="nav">
   <a href="#top" class="nav__logo">
