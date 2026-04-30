@@ -1,0 +1,453 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContentImage from '../components/ContentImage.astro';
+import img1 from '../assets/images/img1.webp';
+import img2 from '../assets/images/img2.webp';
+import img3 from '../assets/images/img3.webp';
+import img4 from '../assets/images/img4.webp';
+import img5 from '../assets/images/img5.webp';
+import img7 from '../assets/images/img7.webp';
+import img8 from '../assets/images/img8.webp';
+---
+
+<Layout
+  title="Enjoy 24 — Cannabis · Coffee · PlayStation · Open 24 Hours · Rawai, Phuket"
+  description="A 24-hour cannabis shop, coffee bar, and PlayStation lounge in Rawai, Phuket. Premium flower, fresh coffee, and good vibes around the clock."
+>
+<!-- ====== NAV ====== -->
+<nav class="nav">
+  <a href="#top" class="nav__logo">
+    <svg class="leaf" style="color: var(--neon);"><use href="#leaf-icon"/></svg>
+    <span class="enjoy">ENJOY</span><span class="h">24h</span>
+  </a>
+  <div class="nav__links">
+    <a href="#offerings">What We Do</a>
+    <a href="#place">The Place</a>
+    <a href="#menu">Menu</a>
+    <a href="#visit">Visit</a>
+    <a href="tel:+66993594534" class="nav__cta">Call Now</a>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__strip">
+    <div class="hero__strip-track">
+      <span>Premium Cannabis</span><span>Open 24 Hours</span><span>PlayStation 5</span><span>Fresh Coffee</span><span>Cold Drinks</span><span>Rawai Phuket</span>
+      <span>Premium Cannabis</span><span>Open 24 Hours</span><span>PlayStation 5</span><span>Fresh Coffee</span><span>Cold Drinks</span><span>Rawai Phuket</span>
+    </div>
+  </div>
+
+  <div class="hero__inner">
+    <div>
+      <div class="hero__eyebrow"><span class="pulse"></span>Open Right Now · Always Open</div>
+
+      <h1 class="hero__title">
+        <span class="l1">Cannabis.</span>
+        <span class="l2">Coffee. <span class="h">24h.</span></span>
+      </h1>
+
+      <p class="hero__sub">
+        A late-night kind of place in <strong>Rawai, Phuket</strong>. Premium ganja, fresh espresso, cold drinks, and a <strong>PlayStation 5</strong> ready whenever you are. Whether it's 2 PM or 2 AM, we're up.
+      </p>
+
+      <div class="hero__ctas">
+        <a href="#visit" class="btn btn--primary">Get Directions →</a>
+        <a href="#menu" class="btn btn--ghost">See the Menu</a>
+      </div>
+    </div>
+
+    <div class="hero__photos">
+      <div class="hero__badge">
+        <div>OPEN</div>
+        <div class="num">24h</div>
+        <div>EVERY · DAY</div>
+      </div>
+      <div class="hero__photo hero__photo--main">
+        <ContentImage
+          src={img1}
+          alt="Enjoy 24 storefront at night with neon green leaf signage"
+          sizes="(max-width: 960px) 92vw, min(42vw, 720px)"
+          priority
+        />
+      </div>
+      <div class="hero__photo hero__photo--small">
+        <ContentImage
+          src={img4}
+          alt="Inside the cannabis bar with stocked shelves and bar seating"
+          sizes="(max-width: 960px) 58vw, min(28vw, 420px)"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATS ====== -->
+<div class="stats">
+  <div class="stats__inner stagger">
+    <div class="stat">
+      <div class="stat__num">24/7</div>
+      <div class="stat__label">Always Open</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">5.0</div>
+      <div class="stat__label">Google Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">PS5</div>
+      <div class="stat__label">Free to Play</div>
+    </div>
+    <div class="stat">
+      <div class="stat__num">฿200+</div>
+      <div class="stat__label">Avg Spend</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== OFFERINGS ====== -->
+<section class="section offerings" id="offerings">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__eyebrow">What we do</div>
+      <h2 class="section__title">Four reasons<br/>to <span class="accent">come in.</span></h2>
+      <p class="section__lede">We're a cannabis shop first — but we figured if you're going to hang out, you might as well have something to drink, something to play, and somewhere good to sit.</p>
+    </div>
+
+    <div class="offerings__grid stagger">
+      <div class="offering">
+        <div class="offering__num"><span>01</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <path d="M32 6c-2 6-6 10-12 12 4 1 7 4 9 8-4-1-9 0-13 4 5 0 10 2 13 6-2 4-1 9 2 13 1-5 4-9 9-11 1 5 4 9 9 11 3-4 4-9 2-13 3-4 8-6 13-6-4-4-9-5-13-4 2-4 5-7 9-8-6-2-10-6-12-12-2 4-4 7-7 9-3-2-5-5-7-9z"/>
+            <path d="M32 32v22"/>
+          </svg>
+        </div>
+        <h3 class="offering__title">Cannabis</h3>
+        <p class="offering__desc">Premium flower, hand-picked strains, and everything you need — papers, tips, grinders, glassware. Staff who know their stuff and take time to explain.</p>
+      </div>
+
+      <div class="offering">
+        <div class="offering__num"><span>02</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <path d="M14 28h32v18a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8V28z"/>
+            <path d="M46 32h6a6 6 0 0 1 0 12h-6"/>
+            <path d="M22 18c0-3 4-3 4-6M30 18c0-3 4-3 4-6M38 18c0-3 4-3 4-6"/>
+          </svg>
+        </div>
+        <h3 class="offering__title">Coffee</h3>
+        <p class="offering__desc">Espresso, americano, latte, cappuccino, macchiato. Iced or hot. Decaf if you'd rather sleep. Honestly amazing — that's not us, that's the reviews.</p>
+      </div>
+
+      <div class="offering">
+        <div class="offering__num"><span>03</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <rect x="10" y="22" width="44" height="28" rx="14"/>
+            <path d="M20 36h8M24 32v8"/>
+            <circle cx="42" cy="34" r="2"/>
+            <circle cx="48" cy="38" r="2"/>
+          </svg>
+        </div>
+        <h3 class="offering__title">PlayStation</h3>
+        <p class="offering__desc">PS5 set up and ready. Bring a friend, pick a game, settle in. The bean bags out front are also fair game if you'd rather just chill.</p>
+      </div>
+
+      <div class="offering">
+        <div class="offering__num"><span>04</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <circle cx="32" cy="32" r="24"/>
+            <path d="M32 14v18l12 8"/>
+          </svg>
+        </div>
+        <h3 class="offering__title">24 Hours</h3>
+        <p class="offering__desc">No closing time. Whether the night caught you sideways or the morning came too fast, we're already open. Walk in whenever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== THE PLACE ====== -->
+<section class="section" id="place">
+  <div class="section__inner">
+    <div class="place__header">
+      <div class="reveal">
+        <div class="section__eyebrow">The Place</div>
+        <h2 class="section__title">Cozy<br/><span class="accent">around the clock.</span></h2>
+      </div>
+      <p class="section__lede reveal">
+        Astroturf and bean bags out front. Wood-slat walls and a long bar inside. Soft pendant lights, a graffiti wall, fresh flowers on every table. Built to be a <strong style="color:var(--ink)">good place to be</strong>, not just a transaction.
+      </p>
+    </div>
+
+    <div class="place__gallery">
+      <div class="place__item place__item--1">
+        <ContentImage
+          src={img8}
+          alt="The interior bar with bar stools, glassware shelves, and warm lighting"
+          sizes="(max-width: 800px) 94vw, min(58vw, 880px)"
+        />
+      </div>
+      <div class="place__item place__item--2">
+        <ContentImage
+          src={img3}
+          alt="Pink bean bag chair on outdoor astroturf with graffiti wall"
+          sizes="(max-width: 800px) 48vw, min(38vw, 520px)"
+        />
+      </div>
+      <div class="place__item place__item--3">
+        <ContentImage
+          src={img2}
+          alt="Wooden bar counter with leather bar stools by tinted windows"
+          sizes="(max-width: 800px) 48vw, min(38vw, 520px)"
+        />
+      </div>
+      <div class="place__item place__item--4">
+        <ContentImage
+          src={img5}
+          alt="Inside view through sliding doors out to the street with neon signs"
+          sizes="(max-width: 800px) 94vw, min(48vw, 720px)"
+        />
+      </div>
+      <div class="place__item place__item--5">
+        <ContentImage
+          src={img7}
+          alt="Outdoor seating with blue and yellow bean bags facing the street"
+          sizes="(max-width: 800px) 94vw, min(48vw, 720px)"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MENU ====== -->
+<section class="section menu" id="menu">
+  <div class="section__inner">
+    <div class="reveal" style="text-align:center; max-width: 700px; margin: 0 auto;">
+      <div class="section__eyebrow" style="justify-content:center">A taste of the menu</div>
+      <h2 class="section__title">Coffee <span class="accent">+</span> the<br/>good stuff.</h2>
+      <p class="section__lede" style="margin: 0 auto;">A few of the things we pour and roll. The full menu sits at the bar — and we're happy to talk you through any of it.</p>
+    </div>
+
+    <div class="menu__cards">
+      <div class="menu__card">
+        <div class="menu__card-head">
+          <div class="menu__card-title green">Coffee Bar</div>
+          <div class="menu__card-tag">Hot · Iced · Decaf</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Espresso</div>
+            <div class="menu__desc">Single shot, double on request</div>
+          </div>
+          <div class="menu__price">฿60</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Americano</div>
+            <div class="menu__desc">Hot or iced</div>
+          </div>
+          <div class="menu__price">฿70</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Cappuccino</div>
+            <div class="menu__desc">Steamed milk, fine foam</div>
+          </div>
+          <div class="menu__price">฿80</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Latte</div>
+            <div class="menu__desc">Hot or iced, vanilla optional</div>
+          </div>
+          <div class="menu__price">฿90</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Macchiato</div>
+            <div class="menu__desc">Espresso marked with milk</div>
+          </div>
+          <div class="menu__price">฿80</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Tea</div>
+            <div class="menu__desc">Hot or iced, ask for varieties</div>
+          </div>
+          <div class="menu__price">฿60</div>
+        </div>
+      </div>
+
+      <div class="menu__card">
+        <div class="menu__card-head">
+          <div class="menu__card-title pink">The Bar</div>
+          <div class="menu__card-tag">Cannabis · Drinks</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Premium Flower</div>
+            <div class="menu__desc">Rotating selection, ask the staff</div>
+          </div>
+          <div class="menu__price">market</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Pre-rolls</div>
+            <div class="menu__desc">Made fresh, choose your strain</div>
+          </div>
+          <div class="menu__price">฿200+</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Papers · Tips · Filters</div>
+            <div class="menu__desc">RAW, JV, and others</div>
+          </div>
+          <div class="menu__price">฿70+</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Grinders</div>
+            <div class="menu__desc">Multiple sizes & colors</div>
+          </div>
+          <div class="menu__price">฿150+</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Glassware</div>
+            <div class="menu__desc">Bongs, pipes, accessories</div>
+          </div>
+          <div class="menu__price">฿400+</div>
+        </div>
+        <div class="menu__row">
+          <div>
+            <div class="menu__name">Cold Beer & Drinks</div>
+            <div class="menu__desc">From the fridge, ice cold</div>
+          </div>
+          <div class="menu__price">฿80+</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="menu__note">Prices are indicative and may change. Cannabis sales for adults 20+ only.</p>
+  </div>
+</section>
+
+<!-- ====== REVIEWS ====== -->
+<section class="section">
+  <div class="section__inner">
+    <div class="reveal" style="text-align:center; max-width: 700px; margin: 0 auto;">
+      <div class="section__eyebrow" style="justify-content:center">5.0 on Google</div>
+      <h2 class="section__title">What people<br/><span class="accent">say about us.</span></h2>
+    </div>
+
+    <div class="reviews__grid stagger">
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">"This place is next level! A cannabis shop, coffee spot, and PlayStation lounge all in one. The staff really know their products and take time to explain different strains. The coffee is honestly amazing — rich, smooth, and perfect whether it's early morning or late night."</p>
+        <div class="review__author">
+          <div class="review__avatar">S</div>
+          <div>
+            <div class="review__name">Saagar B.</div>
+            <div class="review__meta">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">"Great place to hang out and chill. PS5, good selections, awesome staff and open 24 hours. I'll be back for sure."</p>
+        <div class="review__author">
+          <div class="review__avatar">M</div>
+          <div>
+            <div class="review__name">Manny P.</div>
+            <div class="review__meta">Local Guide · Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="review__stars">★★★★★</div>
+        <p class="review__text">"Good vibes and quality weed. No wait, plenty of free parking. Atmosphere is clean, comfortable, and relaxed — easily the go-to spot whether it's 2 PM or 2 AM."</p>
+        <div class="review__author">
+          <div class="review__avatar">N</div>
+          <div>
+            <div class="review__name">Naylwin S.</div>
+            <div class="review__meta">Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VISIT ====== -->
+<section class="section visit" id="visit">
+  <div class="section__inner">
+    <div class="reveal" style="margin-bottom: 60px;">
+      <div class="section__eyebrow">Find us</div>
+      <h2 class="section__title">Come <span class="accent">through.</span></h2>
+      <p class="section__lede">In Rawai, just off the main road. Free parking out front, 7-Eleven next door if you need anything else.</p>
+    </div>
+
+    <div class="visit__inner">
+      <div class="visit__info">
+        <div class="info__row">
+          <div class="info__label">Address</div>
+          <div class="info__value">
+            <a href="https://maps.google.com/?q=Q8R9%2BH3V+Rawai+Phuket" target="_blank" rel="noopener">
+              Q8R9+H3V, Rawai<br/>
+              Mueang Phuket District<br/>
+              Phuket 83100, Thailand
+            </a>
+          </div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">Hours</div>
+          <div class="info__value">Open 24 hours · Every day</div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">Phone</div>
+          <div class="info__value"><a href="tel:+66993594534">099 359 4534</a></div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">Parking</div>
+          <div class="info__value">Plenty · Free of charge</div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">Vibes</div>
+          <div class="info__value">Outdoor terrace · Bean-bag patio · Counter seating · Solo, pairs, or groups</div>
+        </div>
+      </div>
+
+      <div class="visit__map">
+        <iframe
+          src="https://www.google.com/maps?q=Q8R9%2BH3V+Rawai+Phuket+Thailand&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Enjoy 24 location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">
+      <svg class="leaf" style="color: var(--neon);"><use href="#leaf-icon"/></svg>
+      <span class="enjoy">ENJOY</span><span class="h">24h</span>
+    </div>
+    <div class="footer__meta">
+      <a href="/privacy">Privacy</a> ·
+      <a href="/terms">Terms</a> ·
+      Rawai · Phuket · 099 359 4534
+    </div>
+  </div>
+  <p class="footer__age">
+    You must be 20 years or older to purchase cannabis products. Please consume responsibly. Not for sale to minors. Cannabis products are not intended to diagnose, treat, cure, or prevent any disease.
+  </p>
+</footer>
+</Layout>

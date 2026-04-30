@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Astro
+.astro/
+
+# Logs / OS
+npm-debug.log*
+.DS_Store
+
+# Env (optional secrets)
+.env
+.env.*

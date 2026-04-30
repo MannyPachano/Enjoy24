@@ -1,0 +1,28 @@
+---
+import Layout from './Layout.astro';
+import '../styles/legal-page.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="legal-page">
+    <header class="legal-page__topbar">
+      <a href="/" class="legal-page__brand">
+        <span class="legal-page__brand-enjoy">ENJOY</span><span class="legal-page__brand-h">24h</span>
+      </a>
+      <a href="/" class="legal-page__back">← Back to home</a>
+    </header>
+
+    <main class="legal-page__main">
+      <slot />
+    </main>
+
+    <footer class="legal-page__foot">Enjoy 24h · Rawai · Phuket · Open 24 hours</footer>
+  </div>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  /** Descriptor for responsive `sizes` on the underlying `<img>` / `<source>` */
+  sizes: string;
+  /** LCP / above-the-fold: eager load + high fetch priority */
+  priority?: boolean;
+}
+
+const widths = [480, 720, 960, 1280, 1536, 1920] as const;
+
+const { src, alt, sizes, priority = false } = Astro.props;
+---
+
+<Picture
+  src={src}
+  alt={alt}
+  formats={['avif', 'webp']}
+  fallbackFormat="jpeg"
+  widths={[...widths]}
+  sizes={sizes}
+  loading={priority ? 'eager' : 'lazy'}
+  decoding="async"
+  {...(priority ? { fetchpriority: 'high' as const } : {})}
+/>

@@ -1,0 +1,160 @@
+---
+import '@fontsource/bungee/latin-400.css';
+import '@fontsource/major-mono-display/latin-400.css';
+import '@fontsource/outfit/latin-300.css';
+import '@fontsource/outfit/latin-400.css';
+import '@fontsource/outfit/latin-500.css';
+import '@fontsource/outfit/latin-600.css';
+import '@fontsource/outfit/latin-700.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Reusable cannabis leaf SVG: 7 lanceolate leaflets, fanned, like the real plant -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <g id="leaflet">
+          <path
+            d="M 0 0
+               C -2 -8, -4 -16, -3 -22
+               L -4 -24 L -3 -25 L -4 -27 L -3 -28 L -3.5 -30 L -2.5 -31 L -3 -33 L -2 -34 L -2 -36
+               C -1.5 -38, -1 -39, 0 -40
+               C 1 -39, 1.5 -38, 2 -36
+               L 2 -34 L 3 -33 L 2.5 -31 L 3.5 -30 L 3 -28 L 4 -27 L 3 -25 L 4 -24 L 3 -22
+               C 4 -16, 2 -8, 0 0 Z"
+            fill="currentColor"></path>
+        </g>
+        <symbol id="leaf-icon" viewBox="-44 -44 88 70">
+          <use href="#leaflet" transform="rotate(0) scale(1.0)"></use>
+          <use href="#leaflet" transform="rotate(35) scale(0.85)"></use>
+          <use href="#leaflet" transform="rotate(-35) scale(0.85)"></use>
+          <use href="#leaflet" transform="rotate(70) scale(0.6)"></use>
+          <use href="#leaflet" transform="rotate(-70) scale(0.6)"></use>
+          <use href="#leaflet" transform="rotate(110) scale(0.4)"></use>
+          <use href="#leaflet" transform="rotate(-110) scale(0.4)"></use>
+        </symbol>
+      </defs>
+    </svg>
+
+    <!-- Age gate (first visit per browser session) -->
+    <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+      <div class="age-gate__backdrop"></div>
+      <div class="age-gate__card">
+        <div class="age-gate__leaf">
+          <svg
+            viewBox="-44 -44 88 70"
+            style="color: var(--neon); width: 64px; height: 64px; filter: drop-shadow(0 0 12px rgba(109, 255, 63, 0.6));"
+            aria-hidden="true"
+          >
+            <use href="#leaf-icon"></use>
+          </svg>
+        </div>
+        <div class="age-gate__eyebrow">
+          <span class="age-gate__pulse"></span>One quick check
+        </div>
+        <h2 class="age-gate__title" id="age-gate-title">
+          Are you<br />
+          <span class="amber">20 or older?</span>
+        </h2>
+        <p class="age-gate__sub">
+          You must be 20 years or older to enter this site. Cannabis products are for adults only — please
+          confirm your age to continue.
+        </p>
+        <div class="age-gate__actions">
+          <button type="button" class="age-gate__btn age-gate__btn--yes" id="age-gate-yes">
+            Yes, I'm 20+ →
+          </button>
+          <button type="button" class="age-gate__btn age-gate__btn--no" id="age-gate-no">
+            I'm under 20
+          </button>
+        </div>
+        <p class="age-gate__legal">
+          By entering, you confirm you are of legal age to view cannabis content in your jurisdiction.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="age-gate-blocked"
+      id="age-gate-blocked"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="age-gate-blocked-title"
+    >
+      <div class="age-gate__card">
+        <h2 class="age-gate__title" id="age-gate-blocked-title">
+          Sorry —<br />
+          <span class="amber">come back later.</span>
+        </h2>
+        <p class="age-gate__sub">You must be 20 or older to access this site. We'll see you in a few years.</p>
+      </div>
+    </div>
+
+    <slot />
+
+    <script is:inline>
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll('.reveal, .stagger').forEach((el) => io.observe(el));
+    </script>
+
+    <script is:inline>
+      (function () {
+        const STORAGE_KEY = 'enjoy24-age-verified';
+        const gate = document.getElementById('age-gate');
+        const blocked = document.getElementById('age-gate-blocked');
+        const yesBtn = document.getElementById('age-gate-yes');
+        const noBtn = document.getElementById('age-gate-no');
+
+        if (!gate || !blocked || !yesBtn || !noBtn) return;
+
+        if (sessionStorage.getItem(STORAGE_KEY) === 'yes') {
+          gate.style.display = 'none';
+          return;
+        }
+
+        document.body.classList.add('age-gate-active');
+
+        yesBtn.addEventListener('click', () => {
+          sessionStorage.setItem(STORAGE_KEY, 'yes');
+          gate.style.opacity = '0';
+          gate.style.transition = 'opacity 0.35s ease';
+          setTimeout(() => {
+            gate.style.display = 'none';
+            document.body.classList.remove('age-gate-active');
+          }, 350);
+        });
+
+        noBtn.addEventListener('click', () => {
+          gate.style.display = 'none';
+          blocked.classList.add('show');
+        });
+      })();
+    </script>
+  </body>
+</html>
