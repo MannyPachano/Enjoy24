@@ -3,6 +3,8 @@ import '@fontsource-variable/outfit/index.css';
 import '../styles/fonts-brand.css';
 import '../styles/global.css';
 
+import bungeeWoff2 from '@fontsource/bungee/files/bungee-latin-400-normal.woff2?url';
+import majorMonoWoff2 from '@fontsource/major-mono-display/files/major-mono-display-latin-400-normal.woff2?url';
 import outfitLatinWoff2 from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url';
 
 interface Props {
@@ -76,7 +78,9 @@ const absoluteOg =
 
     <slot name="jsonld" />
 
-    <!-- Body/UI font only — decorative fonts use font-display:optional and load after CSS -->
+    <!-- Preload so hard refresh still paints Bungee / Major Mono / Outfit once files arrive -->
+    <link rel="preload" href={bungeeWoff2} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={majorMonoWoff2} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={outfitLatinWoff2} as="font" type="font/woff2" crossorigin />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />

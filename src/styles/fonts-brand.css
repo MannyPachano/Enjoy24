@@ -1,9 +1,9 @@
-/* Decorative headings — optional avoids metric swap / CLS when fonts arrive late */
+/* Decorative headings — swap shows brand fonts once loaded (preload in Layout reduces FOUT). */
 @font-face {
   font-family: 'Bungee';
   font-style: normal;
   font-weight: 400;
-  font-display: optional;
+  font-display: swap;
   src: url('../../node_modules/@fontsource/bungee/files/bungee-latin-400-normal.woff2') format('woff2');
 }
 
@@ -11,7 +11,7 @@
   font-family: 'Major Mono Display';
   font-style: normal;
   font-weight: 400;
-  font-display: optional;
+  font-display: swap;
   src: url('../../node_modules/@fontsource/major-mono-display/files/major-mono-display-latin-400-normal.woff2')
     format('woff2');
 }
