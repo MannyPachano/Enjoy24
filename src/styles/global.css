@@ -17,7 +17,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit Variable', system-ui, sans-serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.5;
@@ -173,7 +173,8 @@
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 60px;
-    align-items: center;
+    /* Top-align columns so webfont swaps don't vertically shift the photo collage (CLS). */
+    align-items: start;
   }
 
   @media (max-width: 960px) {
@@ -246,7 +247,7 @@
     align-items: center;
     gap: 10px;
     padding: 16px 26px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit Variable', system-ui, sans-serif;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.08em;
@@ -315,6 +316,7 @@
 
   /* glowing leaf badge over the hero photos */
   .hero__badge {
+    contain: layout paint;
     position: absolute;
     top: -10px;
     left: 8%;
@@ -945,7 +947,7 @@
   }
 
   .age-gate__btn {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit Variable', system-ui, sans-serif;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.08em;
@@ -1115,7 +1117,7 @@
     align-items: center;
     gap: 10px;
     padding: 16px 26px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit Variable', system-ui, sans-serif;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.08em;

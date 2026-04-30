@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/outfit": "^5.2.8",
     "@fontsource/bungee": "^5.2.7",
     "@fontsource/major-mono-display": "^5.2.8",
-    "@fontsource/outfit": "^5.2.8",
     "astro": "^5.7.12"
   }
 }
