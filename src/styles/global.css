@@ -97,6 +97,7 @@
     color: var(--neon) !important;
     border-radius: 999px;
     font-size: 12px !important;
+    text-transform: none;
     transition: all 0.25s ease;
   }
   .nav__cta:hover {
