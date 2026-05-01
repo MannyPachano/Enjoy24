@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
+    "@fontsource-variable/noto-sans-thai": "^5.2.8",
     "@fontsource-variable/outfit": "^5.2.8",
     "@fontsource/bungee": "^5.2.7",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/major-mono-display": "^5.2.8",
+    "@fontsource/mitr": "^5.2.8",
     "astro": "^5.7.12"
   }
 }

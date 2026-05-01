@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HomePage from '../components/HomePage.astro';
+import Layout from '../../layouts/Layout.astro';
+import HomePage from '../../components/HomePage.astro';
 
 const origin =
   Astro.site?.origin ?? new URL(import.meta.env.SITE ?? 'https://enjoy24.netlify.app').origin;
@@ -10,8 +10,8 @@ const localBusinessLd = {
   '@type': 'CannabisStore',
   name: 'Enjoy 24h',
   description:
-    'A 24-hour cannabis shop, coffee bar, and PlayStation lounge in Rawai, Phuket. Premium flower, fresh coffee, and good vibes around the clock.',
-  url: `${origin}/`,
+    'ร้านกัญชา กาแฟสด และมุม PlayStation 5 เปิด 24 ชั่วโมงทุกวันที่ราไวย์ ภูเก็ต กัญชาคุณภาพ บรรยากาศชิล',
+  url: `${origin}/th/`,
   image: [`${origin}/og.webp`],
   telephone: '+66993594534',
   contactPoint: {
@@ -41,11 +41,12 @@ const localBusinessLd = {
 ---
 
 <Layout
-  locale="en"
-  ogLocale="en_US"
-  title="Enjoy 24h — Cannabis · Coffee · PlayStation · Open 24 Hours · Rawai, Phuket"
-  description="A 24-hour cannabis shop, coffee bar, and PlayStation lounge in Rawai, Phuket. Premium flower, fresh coffee, and good vibes around the clock."
+  locale="th"
+  ogLocale="th_TH"
+  title="Enjoy 24h — กัญชา · กาแฟ · เกม · เปิด 24 ชั่วโมง · ราไวย์ ภูเก็ต"
+  description="ร้านกัญชา กาแฟสด และมุม PlayStation 5 เปิด 24 ชั่วโมงทุกวันที่ราไวย์ ภูเก็ต กัญชาคุณภาพ บรรยากาศชิล"
+  ogImageAlt="ร้าน Enjoy 24h — กัญชา กาแฟ และเลานจ์ที่ราไวย์ ภูเก็ต"
 >
   <script type="application/ld+json" slot="jsonld" set:html={JSON.stringify(localBusinessLd)} />
-  <HomePage locale="en" />
+  <HomePage locale="th" />
 </Layout>

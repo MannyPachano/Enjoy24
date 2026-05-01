@@ -1,7 +1,14 @@
 ---
 import '@fontsource-variable/outfit/index.css';
+import '@fontsource/mitr/700.css';
+import '@fontsource-variable/noto-sans-thai/index.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
 import '../styles/fonts-brand.css';
 import '../styles/global.css';
+import '../styles/thai-overrides.css';
+
+import type { SiteLocale } from '../i18n/ageGate';
+import { ageGateCopy } from '../i18n/ageGate';
 
 import bungeeWoff2 from '@fontsource/bungee/files/bungee-latin-400-normal.woff2?url';
 import majorMonoWoff2 from '@fontsource/major-mono-display/files/major-mono-display-latin-400-normal.woff2?url';
@@ -15,6 +22,9 @@ interface Props {
   ogImageAlt?: string;
   /** Use on error pages so they are not indexed. */
   noindex?: boolean;
+  locale?: SiteLocale;
+  /** Open Graph locale, e.g. `th_TH` or `en_US` */
+  ogLocale?: string;
 }
 
 const siteFallback = import.meta.env.SITE ?? 'https://enjoy24.netlify.app';
@@ -27,16 +37,22 @@ const {
   ogImage = '/og.webp',
   ogImageAlt = 'Enjoy 24h storefront — cannabis, coffee, and lounge in Rawai, Phuket',
   noindex = false,
+  locale = 'en',
+  ogLocale = 'en_US',
 } = Astro.props;
+
+const ag = ageGateCopy[locale];
 
 const absoluteOg =
   ogImage.startsWith('http://') || ogImage.startsWith('https://')
     ? ogImage
     : new URL(ogImage.startsWith('/') ? ogImage : `/${ogImage}`, baseUrl).href;
+
+const htmlLang = locale === 'th' ? 'th' : 'en';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={htmlLang} class:list={[{ 'lang-th': locale === 'th' }]}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,12 +76,22 @@ const absoluteOg =
 
     <link rel="canonical" href={canonicalURL.href} />
 
+    {
+      Astro.site && (
+        <>
+          <link rel="alternate" hreflang="en" href={new URL('/', Astro.site).href} />
+          <link rel="alternate" hreflang="th" href={new URL('/th/', Astro.site).href} />
+          <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+        </>
+      )
+    }
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:site_name" content="Enjoy 24h" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={absoluteOg} />
     <meta property="og:image:alt" content={ogImageAlt} />
 
@@ -135,27 +161,18 @@ const absoluteOg =
           </svg>
         </div>
         <div class="age-gate__eyebrow">
-          <span class="age-gate__pulse"></span>One quick check
+          <span class="age-gate__pulse"></span>{ag.eyebrow}
         </div>
         <h2 class="age-gate__title" id="age-gate-title">
-          Are you<br />
-          <span class="amber">20 or older?</span>
+          {ag.titleLine1}<br />
+          <span class="amber">{ag.titleAccent}</span>
         </h2>
-        <p class="age-gate__sub">
-          You must be 20 years or older to enter this site. Cannabis products are for adults only — please
-          confirm your age to continue.
-        </p>
+        <p class="age-gate__sub">{ag.sub}</p>
         <div class="age-gate__actions">
-          <button type="button" class="age-gate__btn age-gate__btn--yes" id="age-gate-yes">
-            Yes, I'm 20+ →
-          </button>
-          <button type="button" class="age-gate__btn age-gate__btn--no" id="age-gate-no">
-            I'm under 20
-          </button>
+          <button type="button" class="age-gate__btn age-gate__btn--yes" id="age-gate-yes">{ag.btnYes}</button>
+          <button type="button" class="age-gate__btn age-gate__btn--no" id="age-gate-no">{ag.btnNo}</button>
         </div>
-        <p class="age-gate__legal">
-          By entering, you confirm you are of legal age to view cannabis content in your jurisdiction.
-        </p>
+        <p class="age-gate__legal">{ag.legal}</p>
       </div>
     </div>
 
@@ -168,10 +185,10 @@ const absoluteOg =
     >
       <div class="age-gate__card">
         <h2 class="age-gate__title" id="age-gate-blocked-title">
-          Sorry —<br />
-          <span class="amber">come back later.</span>
+          {ag.blockedTitleLine1}<br />
+          <span class="amber">{ag.blockedAccent}</span>
         </h2>
-        <p class="age-gate__sub">You must be 20 or older to access this site. We'll see you in a few years.</p>
+        <p class="age-gate__sub">{ag.blockedSub}</p>
       </div>
     </div>
 

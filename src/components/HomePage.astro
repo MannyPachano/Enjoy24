@@ -1,0 +1,357 @@
+---
+import ContentImage from './ContentImage.astro';
+import type { SiteLocale } from '../i18n/ageGate';
+import { homeCopy } from '../i18n/home';
+import img1 from '../assets/images/img1.webp';
+import img2 from '../assets/images/img2.webp';
+import img3 from '../assets/images/img3.webp';
+import img4 from '../assets/images/img4.webp';
+import img5 from '../assets/images/img5.webp';
+import img7 from '../assets/images/img7.webp';
+import img8 from '../assets/images/img8.webp';
+
+interface Props {
+  locale: SiteLocale;
+}
+
+const { locale } = Astro.props;
+const t = homeCopy[locale];
+---
+
+<!-- ====== NAV ====== -->
+<nav class="nav">
+  <a href="#top" class="nav__logo">
+    <svg class="leaf" style="color: var(--neon);"><use href="#leaf-icon"></use></svg>
+    <span class="enjoy">ENJOY</span><span class="h">24h</span>
+  </a>
+  <div class="nav__links">
+    <a href="#offerings">{t.nav.offerings}</a>
+    <a href="#place">{t.nav.place}</a>
+    <a href="#menu">{t.nav.menu}</a>
+    <a href="#visit">{t.nav.visit}</a>
+    <a
+      href={t.nav.langHref}
+      class="nav__lang"
+      hreflang={t.nav.langHrefLang}
+      aria-label={t.nav.langAria}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+      </svg>
+      {t.nav.langLabel}
+    </a>
+    <a
+      href="https://wa.me/66993594534"
+      class="nav__cta"
+      target="_blank"
+      rel="noopener noreferrer">{t.nav.cta}</a>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__strip">
+    <div class="hero__strip-track">
+      {t.hero.marquee.map((label) => <span>{label}</span>)}
+      {t.hero.marquee.map((label) => <span>{label}</span>)}
+    </div>
+  </div>
+
+  <div class="hero__inner">
+    <div>
+      <div class="hero__eyebrow"><span class="pulse"></span>{t.hero.eyebrow}</div>
+
+      <h1 class="hero__title">
+        <span class="l1">{t.hero.title1}</span>
+        <span class="l2">{t.hero.title2Before}<span class="h">{t.hero.title2Accent}</span></span>
+      </h1>
+
+      <p class="hero__sub" set:html={t.hero.subHtml} />
+
+      <div class="hero__ctas">
+        <a href="#visit" class="btn btn--primary">{t.hero.ctaPrimary}</a>
+        <a href="#menu" class="btn btn--ghost">{t.hero.ctaGhost}</a>
+      </div>
+    </div>
+
+    <div class="hero__photos">
+      <div class="hero__badge">
+        <div>{t.hero.badgeOpen}</div>
+        <div class="num">24h</div>
+        <div>{t.hero.badgeEvery}</div>
+      </div>
+      <div class="hero__photo hero__photo--main">
+        <ContentImage
+          src={img1}
+          alt={t.hero.imgMainAlt}
+          sizes="(max-width: 960px) 92vw, min(42vw, 720px)"
+          priority
+        />
+      </div>
+      <div class="hero__photo hero__photo--small">
+        <ContentImage
+          src={img4}
+          alt={t.hero.imgSmallAlt}
+          sizes="(max-width: 960px) 58vw, min(28vw, 420px)"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATS ====== -->
+<div class="stats">
+  <div class="stats__inner stagger">
+    {
+      t.stats.map((s) => (
+        <div class="stat">
+          <div class="stat__num">{s.num}</div>
+          <div class="stat__label">{s.label}</div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<!-- ====== OFFERINGS ====== -->
+<section class="section offerings" id="offerings">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__eyebrow">{t.offerings.eyebrow}</div>
+      <h2 class="section__title" set:html={t.offerings.titleHtml} />
+      <p class="section__lede">{t.offerings.lede}</p>
+    </div>
+
+    <div class="offerings__grid stagger">
+      <div class="offering">
+        <div class="offering__num"><span>01</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <path d="M32 6c-2 6-6 10-12 12 4 1 7 4 9 8-4-1-9 0-13 4 5 0 10 2 13 6-2 4-1 9 2 13 1-5 4-9 9-11 1 5 4 9 9 11 3-4 4-9 2-13 3-4 8-6 13-6-4-4-9-5-13-4 2-4 5-7 9-8-6-2-10-6-12-12-2 4-4 7-7 9-3-2-5-5-7-9z"></path>
+            <path d="M32 32v22"></path>
+          </svg>
+        </div>
+        <h3 class="offering__title">{t.offerings.cards[0].title}</h3>
+        <p class="offering__desc">{t.offerings.cards[0].desc}</p>
+      </div>
+
+      <div class="offering">
+        <div class="offering__num"><span>02</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <path d="M14 28h32v18a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8V28z"></path>
+            <path d="M46 32h6a6 6 0 0 1 0 12h-6"></path>
+            <path d="M22 18c0-3 4-3 4-6M30 18c0-3 4-3 4-6M38 18c0-3 4-3 4-6"></path>
+          </svg>
+        </div>
+        <h3 class="offering__title">{t.offerings.cards[1].title}</h3>
+        <p class="offering__desc">{t.offerings.cards[1].desc}</p>
+      </div>
+
+      <div class="offering">
+        <div class="offering__num"><span>03</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <rect x="10" y="22" width="44" height="28" rx="14"></rect>
+            <path d="M20 36h8M24 32v8"></path>
+            <circle cx="42" cy="34" r="2"></circle>
+            <circle cx="48" cy="38" r="2"></circle>
+          </svg>
+        </div>
+        <h3 class="offering__title">{t.offerings.cards[2].title}</h3>
+        <p class="offering__desc">{t.offerings.cards[2].desc}</p>
+      </div>
+
+      <div class="offering">
+        <div class="offering__num"><span>04</span><span class="dot">●</span></div>
+        <div class="offering__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#6dff3f" stroke-width="1.5">
+            <circle cx="32" cy="32" r="24"></circle>
+            <path d="M32 14v18l12 8"></path>
+          </svg>
+        </div>
+        <h3 class="offering__title">{t.offerings.cards[3].title}</h3>
+        <p class="offering__desc">{t.offerings.cards[3].desc}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== THE PLACE ====== -->
+<section class="section" id="place">
+  <div class="section__inner">
+    <div class="place__header">
+      <div class="reveal">
+        <div class="section__eyebrow">{t.place.eyebrow}</div>
+        <h2 class="section__title" set:html={t.place.titleHtml} />
+      </div>
+      <p class="section__lede reveal" set:html={t.place.ledeHtml} />
+    </div>
+
+    <div class="place__gallery">
+      <div class="place__item place__item--1">
+        <ContentImage src={img8} alt={t.place.alts[0]} sizes="(max-width: 800px) 94vw, min(58vw, 880px)" />
+      </div>
+      <div class="place__item place__item--2">
+        <ContentImage src={img3} alt={t.place.alts[1]} sizes="(max-width: 800px) 48vw, min(38vw, 520px)" />
+      </div>
+      <div class="place__item place__item--3">
+        <ContentImage src={img2} alt={t.place.alts[2]} sizes="(max-width: 800px) 48vw, min(38vw, 520px)" />
+      </div>
+      <div class="place__item place__item--4">
+        <ContentImage src={img5} alt={t.place.alts[3]} sizes="(max-width: 800px) 94vw, min(48vw, 720px)" />
+      </div>
+      <div class="place__item place__item--5">
+        <ContentImage src={img7} alt={t.place.alts[4]} sizes="(max-width: 800px) 94vw, min(48vw, 720px)" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MENU ====== -->
+<section class="section menu" id="menu">
+  <div class="section__inner">
+    <div class="reveal" style="text-align:center; max-width: 700px; margin: 0 auto;">
+      <div class="section__eyebrow" style="justify-content:center">{t.menu.eyebrow}</div>
+      <h2 class="section__title" set:html={t.menu.titleHtml} />
+      <p class="section__lede" style="margin: 0 auto;">{t.menu.lede}</p>
+    </div>
+
+    <div class="menu__cards">
+      <div class="menu__card">
+        <div class="menu__card-head">
+          <div class="menu__card-title green">{t.menu.coffeeTitle}</div>
+          <div class="menu__card-tag">{t.menu.coffeeTag}</div>
+        </div>
+        {
+          t.menu.coffeeRows.map((row) => (
+            <div class="menu__row">
+              <div>
+                <div class="menu__name">{row.name}</div>
+                <div class="menu__desc">{row.desc}</div>
+              </div>
+              <div class="menu__price">{row.price}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="menu__card">
+        <div class="menu__card-head">
+          <div class="menu__card-title pink">{t.menu.barTitle}</div>
+          <div class="menu__card-tag">{t.menu.barTag}</div>
+        </div>
+        {
+          t.menu.barRows.map((row) => (
+            <div class="menu__row">
+              <div>
+                <div class="menu__name">{row.name}</div>
+                <div class="menu__desc">{row.desc}</div>
+              </div>
+              <div class="menu__price">{row.price}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="menu__note">{t.menu.note}</p>
+  </div>
+</section>
+
+<!-- ====== REVIEWS ====== -->
+<section class="section">
+  <div class="section__inner">
+    <div class="reveal" style="text-align:center; max-width: 700px; margin: 0 auto;">
+      <div class="section__eyebrow" style="justify-content:center">{t.reviews.eyebrow}</div>
+      <h2 class="section__title" set:html={t.reviews.titleHtml} />
+    </div>
+
+    <div class="reviews__grid stagger">
+      {
+        t.reviews.items.map((r) => (
+          <div class="review">
+            <div class="review__stars">★★★★★</div>
+            <p class="review__text">{r.quote}</p>
+            <div class="review__author">
+              <div class="review__avatar">{r.avatar}</div>
+              <div>
+                <div class="review__name">{r.name}</div>
+                <div class="review__meta">{r.meta}</div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ====== VISIT ====== -->
+<section class="section visit" id="visit">
+  <div class="section__inner">
+    <div class="reveal" style="margin-bottom: 60px;">
+      <div class="section__eyebrow">{t.visit.eyebrow}</div>
+      <h2 class="section__title" set:html={t.visit.titleHtml} />
+      <p class="section__lede">{t.visit.lede}</p>
+    </div>
+
+    <div class="visit__inner">
+      <div class="visit__info">
+        <div class="info__row">
+          <div class="info__label">{t.visit.labels.address}</div>
+          <div class="info__value">
+            <a href="https://maps.google.com/?q=Q8R9%2BH3V+Rawai+Phuket" target="_blank" rel="noopener">
+              <span set:html={t.visit.addressLines.join('<br/>')} />
+            </a>
+          </div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">{t.visit.labels.hours}</div>
+          <div class="info__value">{t.visit.hours}</div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">{t.visit.labels.phone}</div>
+          <div class="info__value">
+            <a href={t.visit.phoneHref} target="_blank" rel="noopener noreferrer">{t.visit.phoneDisplay}</a>
+          </div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">{t.visit.labels.parking}</div>
+          <div class="info__value">{t.visit.parking}</div>
+        </div>
+        <div class="info__row">
+          <div class="info__label">{t.visit.labels.vibes}</div>
+          <div class="info__value">{t.visit.vibes}</div>
+        </div>
+      </div>
+
+      <div class="visit__map">
+        <iframe
+          src="https://www.google.com/maps?q=Q8R9%2BH3V+Rawai+Phuket+Thailand&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={t.visit.mapTitle}></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">
+      <svg class="leaf" style="color: var(--neon);"><use href="#leaf-icon"></use></svg>
+      <span class="enjoy">ENJOY</span><span class="h">24h</span>
+    </div>
+    <div class="footer__meta">
+      <a href="/privacy">{t.footer.privacy}</a> ·
+      <a href="/terms">{t.footer.terms}</a> ·
+      {t.footer.suffix}
+      <a href="https://wa.me/66993594534" target="_blank" rel="noopener noreferrer">099 359 4534</a>
+    </div>
+  </div>
+  <p class="footer__age">{t.footer.disclaimer}</p>
+</footer>
