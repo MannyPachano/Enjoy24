@@ -2,7 +2,6 @@
 import ContentImage from './ContentImage.astro';
 import type { SiteLocale } from '../i18n/ageGate';
 import { homeCopy } from '../i18n/home';
-import img1 from '../assets/images/img1.webp';
 import img2 from '../assets/images/img2.webp';
 import img3 from '../assets/images/img3.webp';
 import img4 from '../assets/images/img4.webp';
@@ -84,7 +83,7 @@ const t = homeCopy[locale];
       </div>
       <div class="hero__photo hero__photo--main">
         <ContentImage
-          src={img1}
+          src={img8}
           alt={t.hero.imgMainAlt}
           sizes="(max-width: 960px) 92vw, min(42vw, 720px)"
           priority
