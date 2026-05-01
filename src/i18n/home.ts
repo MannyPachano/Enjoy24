@@ -162,7 +162,7 @@ export const homeCopy: Record<SiteLocale, HomeCopy> = {
         "A few of the things we pour and roll. The full menu sits at the bar — and we're happy to talk you through any of it.",
       coffeeTitle: 'Coffee Bar',
       coffeeTag: 'Hot · Iced · Decaf',
-      barTitle: 'The Bar',
+      barTitle: 'Ganja Bar',
       barTag: 'Cannabis · Drinks',
       coffeeRows: [
         { name: 'Espresso', desc: 'Single shot, double on request', price: '฿60' },
@@ -312,7 +312,7 @@ export const homeCopy: Record<SiteLocale, HomeCopy> = {
       lede: 'แค่บางส่วนที่เรามี เมนูเต็มอยู่ที่บาร์ — เดินเข้ามาดู เราอธิบายทุกอย่างให้ฟังได้',
       coffeeTitle: 'เมนูกาแฟ',
       coffeeTag: 'ร้อน · เย็น · ดีแคฟ',
-      barTitle: 'เมนูบาร์',
+      barTitle: 'บาร์กัญชา',
       barTag: 'กัญชา · เครื่องดื่ม',
       coffeeRows: [
         { name: 'เอสเปรสโซ', desc: 'ช็อตเดียว สั่งดับเบิลได้', price: '฿60' },
