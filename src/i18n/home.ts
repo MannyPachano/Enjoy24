@@ -99,7 +99,7 @@ export const homeCopy: Record<SiteLocale, HomeCopy> = {
         'Cold Drinks',
         'Rawai Phuket',
       ],
-      eyebrow: 'Open Right Now · Always Open',
+      eyebrow: 'Open Now',
       title1: 'Cannabis.',
       title2Before: 'Coffee. ',
       title2Accent: '24h.',
@@ -250,7 +250,7 @@ export const homeCopy: Record<SiteLocale, HomeCopy> = {
     },
     hero: {
       marquee: ['กัญชาคุณภาพ', 'เปิด 24 ชั่วโมง', 'PlayStation 5', 'กาแฟสด', 'เครื่องดื่มเย็น', 'ราไวย์ ภูเก็ต'],
-      eyebrow: 'เปิดอยู่ตอนนี้ · เปิด 24 ชม.',
+      eyebrow: 'เปิดอยู่ตอนนี้',
       title1: 'กัญชา.',
       title2Before: 'กาแฟ. ',
       title2Accent: '24 ชม.',
