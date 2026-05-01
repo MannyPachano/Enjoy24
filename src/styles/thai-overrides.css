@@ -12,9 +12,11 @@ html.lang-th .nav__links a:not(.nav__cta):not(.nav__lang) {
   text-transform: none;
 }
 
-html.lang-th .nav__cta {
-  font-size: 13px !important;
-  letter-spacing: 0.02em;
+@media (min-width: 721px) {
+  html.lang-th .nav__cta {
+    font-size: 13px !important;
+    letter-spacing: 0.02em;
+  }
 }
 
 html.lang-th .hero__strip-track {

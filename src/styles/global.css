@@ -137,9 +137,63 @@
     flex-shrink: 0;
   }
 
+  /* ============ NAV — MOBILE ============ */
   @media (max-width: 720px) {
-    .nav { padding: 14px 20px; }
-    .nav__links a:not(.nav__cta):not(.nav__lang) { display: none; }
+    .nav {
+      padding: 12px 16px;
+    }
+
+    .nav__links a:not(.nav__cta):not(.nav__lang) {
+      display: none;
+    }
+
+    .nav__links {
+      gap: 10px;
+    }
+
+    .nav__logo {
+      font-size: 17px;
+      gap: 6px;
+      min-width: 0;
+    }
+    .nav__logo .leaf {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .nav__lang {
+      padding: 6px 10px;
+      font-size: 10px !important;
+      letter-spacing: 0.12em;
+      gap: 0;
+    }
+    .nav__lang svg {
+      display: none;
+    }
+
+    .nav__cta {
+      padding: 8px 14px;
+      font-size: 11px !important;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .nav {
+      padding: 10px 12px;
+    }
+    .nav__logo {
+      font-size: 15px;
+    }
+    .nav__logo .leaf {
+      width: 28px;
+      height: 28px;
+    }
+    .nav__links {
+      gap: 8px;
+    }
   }
 
   /* ============ HERO ============ */
